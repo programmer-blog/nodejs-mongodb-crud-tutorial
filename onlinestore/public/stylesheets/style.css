@@ -1,0 +1,50 @@
+.container{
+  margin: 20px auto;
+}
+h2 {
+  text-align: center;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:13px;
+}
+.success, .error{
+  border: 1px solid;
+  margin: 10px 0px;
+  padding:15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  background-image:url('success.png');
+  display: none;
+}
+.error {
+  display: none;
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url('error.png');
+}
+ .btn{
+   background: #c0c0c0;
+   color: #FFF;
+ }

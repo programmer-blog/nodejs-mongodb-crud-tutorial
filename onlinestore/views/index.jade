@@ -1,0 +1,58 @@
+extends layout
+block content
+  .container
+    h2 NodeJs MongoDB example - View Insert, Update, Delete records
+    .success
+    .error
+    form(id='form1' action='/add' method= 'post')
+      input#id(type='hidden', name='id', value='')
+      table
+        tr
+          td(style='text-align: center')
+            input#product_name(type='text', name='product_name', placeholder='Product Name', value='')
+            | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            input#price(type='text', name='price', placeholder='Price', value='')
+            | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            input#category(type='text', name='category', placeholder='Category', value='')
+            | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            input#subbtn(type='submit', name='sub', value='Add Product')
+    table
+      tbody
+        tr
+          th ID
+          th Product Name
+          th Price
+          th Category
+          th Action
+        if data.length
+         each item in data
+          tr
+            td #{item['_id']}
+            td #{item['product_name']}
+            td #{item['price']}
+            td #{item['category']}
+            td
+               a.editlink(href='javascript:void(0)', data-id='#{item["_id"]}') Edit
+               | &nbsp;&nbsp;
+               a(href='/delete?id=#{item["_id"]}', onclick='return confirm("You are going to delete this record. Continue?")') Delete
+
+    script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+    script.
+      $(function() { 
+        $('.editlink').on('click', function(){
+          var id = $(this).data('id');
+          $.ajax({
+            method: "GET",
+            url: "/fetchdata",
+            data: { id:  id },
+          }).done(function( data ) {
+            //var result = $.parseJSON(data);
+            $('#id').val(data[0]['_id']);
+            $('#product_name').val(data[0]['product_name']);
+            $('#price').val(data[0]['price']);
+            $('#category').val(data[0]['category']);
+            $("#subbtn").val('Edit Product');
+            $('#form1').attr('action', '/edit');
+          });
+        });
+      });

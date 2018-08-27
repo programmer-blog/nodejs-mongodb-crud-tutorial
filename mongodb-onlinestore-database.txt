@@ -1,0 +1,16 @@
+use onlinestore;
+db.createCollection("products”);
+
+db.products.insert([
+
+{ "product_name" : "Apple IPhone 6", "price" : "$630", "category" : "Mobile Phone" },
+
+{ "product_name" : "Sony Vio", "price" : "$1200", "category" : "Laptop" },
+
+{ "product_name" : "Samsung T.V", "price" : "$900", "category" : "Electronics" },
+
+{ "product_name" : "Apple IPAD", "price" : "$400", "category" : "Tablet" },
+
+{ "product_name" : "MacBook Pro", "price" : "$800", "category" : "Laptop" }
+
+]);
