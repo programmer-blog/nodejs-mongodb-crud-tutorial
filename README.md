@@ -1,6 +1,7 @@
 # Source code for NodeJS MongoDB CRUD tutorial
 URL: http://programmerblog.net/
 -------
+Following tasks are performed int his tutorial
 
 1. Install MongoDB
 
